@@ -1,0 +1,290 @@
+#paymentType,
+#label_tz, #tz, 
+#label_car, #car, 
+#label_total, #total, 
+#label_carCost, #carCost, 
+#label_carMov, #carMov, 
+#label_addHourCost, #addHourCost, 
+#label_hoursCount, #hoursCount,
+#label_km, #km,
+#label_time, #time, #percent,
+#label_trash, #trash, 
+#label_volume, #volume,
+#passengers, #busType,
+#label_duration, #duration,
+#label_actions, #actions,
+#clean
+{
+	position: absolute;
+	text-align: center;
+}
+
+body{
+	color: white;
+	font-family: arial;
+	font-size: 14px;
+}
+
+h1{
+	color: green;
+	font-family: "Courier New";
+	text-align: center;
+}
+
+a {
+	color: rgb(255,255,192);
+	text-decoration:  none;
+}
+
+#watch{
+	color: rgb(224,224,224);
+	font-family: arial;
+	font-size: 36px;
+	text-align: center; 
+}
+
+#label_tz {
+	color: rgb(255,255,192);
+	top: 5px;
+	left: 10px;
+}
+#tz{
+	border: 1px solid rgb(100,100,100);
+	top: 15px;
+	left: 90px;
+	padding: 2px 4px;
+}
+
+#paymentType{
+	top: 50px;
+	left: 10px;
+}
+
+#label_car{
+	top: 67px;
+	left: 8px;
+}
+#car{
+	top: 80px;
+	left: 69px;
+}
+
+#label_trash{
+	top: 5px;
+	left: 10px;
+}
+#trash{
+	top: 18px;
+	left: 62px;
+}
+
+#label_volume{
+	display: none;
+	top: 5px;
+	left: 105px;
+}
+#volume{
+	display: none;
+	top: 18px;
+	left: 160px;
+}
+
+
+#label_actions{
+	display: inline;
+	top: 5px;
+	left: 105px;
+	color: rgb(255,255,192);
+}
+#actions{
+	display: inline;
+	top: 15px;
+	left: 160px;
+	border: 1px solid rgb(100,100,100);
+	padding: 2px 4px;
+}
+#bpbn{
+	display: none;
+}
+
+#label_carCost{
+	top: 100px;
+	left: 10px;
+}
+#carCost{
+	top: 112px;
+	left: 58px;
+}
+#label_carMov{
+	top: 132px;
+	left: 10px;
+}
+#carMov{
+	top: 145px;
+	left: 58px;
+}
+
+#label_addHourCost{
+	top: 100px;
+	left: 132px;
+}
+#addHourCost{
+	top: 112px;
+	left: 192px;
+}
+
+#label_hoursCount{
+	top: 100px;
+	left: 265px;
+}
+#hoursCount{
+	top: 112px;
+	left: 310px;
+}
+
+#label_km{
+	display: none;
+	top: 100px;
+	left: 378px;
+}
+#km{
+	display: none;
+	top: 112px;
+	left: 463px;
+	width: 65px;
+}
+#label_time{
+	top: 134px;
+	left: 130px;
+}
+#time{
+	top: 145px;
+	left: 228px;
+}
+
+#passengers{
+	display: none;
+	top: 80px;
+	left: 270px;
+	width: 85px;
+}
+#busType{
+	display: none;
+	top: 80px;
+	left: 358px;
+	width: 85px;
+}
+#label_duration{
+	display: none;
+	top: 66px;
+	left: 448px;
+}
+#duration{
+	display: none;
+	top: 79px;
+	left: 489px;
+	width: 43px;
+}
+
+
+#percent{
+	top: 148px;
+	left: 309px;
+}
+	
+#percent label {
+	border-radius: 3px;
+	padding: 2px 3px 0 0;
+	background-color: #ffaaaa;
+	cursor: pointer;
+	color: white;
+	
+}
+
+#label_total {
+	top: 3px;
+	left: 422px;
+}
+#total {
+	top: 15px;
+	left: 470px;
+	font-weight: 700;
+	color: red;
+}
+
+#clean{
+	top: 230px;
+	left: 490px;
+	font-size: 32px;  
+	cursor: pointer;
+	z-index: 1;
+	padding-bottom: 12px; 
+}
+
+#clean:active{
+	top: 232px;
+}
+
+#block1{
+	position: absolute;
+	width: 173px;
+	height: 355px;
+	border-right: 1px dotted rgb(153,153,153);
+	text-align: center; 
+	font-size: 12px;
+}
+#block2,#block3,#block4,#block5{
+	position: absolute;
+	left: 173px;
+	width: 535px;
+	height: 182px;
+	border-bottom: 1px dotted rgb(51,51,51);
+	border-right:  1px double rgb(51,51,51);
+}
+#block3{
+	top: 182px;
+	height: 50px;
+}
+#block4{
+	top: 232px;
+	width: 460px;
+	height: 120px;
+	border-bottom: 0;
+	padding: 10px 65px 0 10px;
+	font-size: 18px;
+	font-family: Tahoma;
+}
+#block5{
+	top: 0; 
+	border: 0;
+	left: 710px;
+	width: 235px;
+	height: 380px;
+	padding: 0 10px 0 10px;
+	font-family: Tahoma;
+	font-size: 13px;
+	text-align: justify;
+}
+
+#block5 p {text-indent: 15px;}
+
+#shape{
+	background-color: rgb(77,77,77);
+	width: 965px;
+	height: 380px;
+	float: left;
+	position: absolute;
+	border-radius: 3px;
+}
+
+#map {
+	position: absolute;
+	width: 350px;
+	height: 570px;
+} 
+
+#vk_comments{
+	position: absolute;
+	top: 438px;
+}
+

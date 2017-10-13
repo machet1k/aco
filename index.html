@@ -1,0 +1,193 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="styles/style.css" type="text/css"  rel="stylesheet" />
+	
+	<title>Автоконтроль онлайн</title>
+	
+	<!-- jQuery -->
+	<script type="text/javascript" src="scripts/jquery-1.9.1.js"></script>
+
+	<!-- Put this script tag to the <head> of your page -->
+	<script type="text/javascript" src="//vk.com/js/api/openapi.js?124"></script>
+	<script type="text/javascript">
+	VK.init({apiId: 5560047, onlyWidgets: true});
+	</script>
+	
+	<!-- Yandex -->
+	<!-- Если вы используете API локально, то в URL ресурса необходимо указывать протокол в стандартном виде (http://...)
+	<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+ 	<script src="http://yandex.st/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+	<script src="scripts/route_inside_polygon.js" type="text/javascript"></script>-->
+	
+	<!-- My js -->
+	<script type="text/javascript" src="scripts/script.js"></script>
+
+</head>
+<body onload="digitalWatch()">
+	
+	<h1>AutoControl Online <span style="vertical-align: super; font-size: 12px;">beta-версия</span></h1>
+
+	<div id="shape">
+		<div id="block1">
+			<p id="watch"></p>
+<a target="_blank" href="http://gruzovichkof.ru/ocenka"><p>Заказать оценщика</p></a>
+<a target="_blank" href="http://bitrix.gruzovichkof.ru/company/personal/user/3848/tasks/task/view/80855/"><p>Сборный груз</p></a>
+		</div>
+		
+		<form name="myform">
+		
+			<div id="block2">
+				<p id="label_tz">Тип заказа</p>
+				<div id="tz">
+					<label><input type="radio" onchange="calc()" name="tz" value="gorod">Городской</label>
+					<label><input type="radio" onchange="calc()" name="tz" value="prigorod"> Пригород</label>
+					<label><input type="radio" onchange="calc()" name="tz" value="mejgorod"> Межгород</label>
+				</div>
+
+				<select id="paymentType" onchange="calc()">
+					<option onchange="calc()" value="nal">Наличный</option>
+					<option onchange="calc()" value="beznal">Безналичный</option>
+				</select>
+
+				<p id="label_car">Тип авто</p>
+				<select onchange="calc()" id="car">
+					<option value="0" style="background-color: #aaffaa;">Газель 3 метра		</option>
+					<option value="1" style="background-color: #aaffaa;">Газель 4 метра		</option>
+					<option value="2" style="background-color: #aaffaa;">Газель Фермер 3 метра	</option>
+					<option value="3" style="background-color: #aaffaa;">Газель Фермер 4 метра	</option>
+					<option value="4" style="background-color: #aaffaa;">Газель бортовая / Пирамида	</option>
+					<option value="5" style="background-color: #aaffaa;">Рефрижератор 3 метра	</option>
+					<option value="6" style="background-color: #aaffaa;">Рефрижератор 4 метра	</option>
+					<option value="7" style="background-color: #aaffaa;">Изотермический фургон	</option>
+					<option value="8" style="background-color: #aaffaa;">Газель «Катюша» 4 метра	</option>
+					<option value="9" style="background-color: #aaffaa;">Каблук			</option>
+					<option value="10" style="background-color: #aaffaa;">Гидроборт			</option>
+					<option value="11" style="background-color: #ffaaaa;">3т тент/фургон		</option>
+					<option value="12" style="background-color: #ffaaaa;">5т тент/фургон		</option>
+					<option value="13" style="background-color: #ffaaaa;">5т борт			</option>
+					<option value="14" style="background-color: #ffaaaa;">10т тент/фургон		</option>
+					<option value="15" style="background-color: #ffaaaa;">10т борт			</option>
+					<option value="16" style="background-color: #ffaaaa;">20т тент/фургон/борт	</option>
+					<option value="17" style="background-color: #ffffaa;">Эвакуатор до 1.5 тонн	</option>
+					<option value="18" style="background-color: #ffffaa;">Эвакуатор до 3.5 тонн	</option>
+					<option value="19" style="background-color: #aaaaff;">Автобус 	</option>
+				</select>
+				
+				<select onchange="calc()" id="passengers">
+					<option style="background-color: #fff;" value="9"> на ... мест		</option>
+					<option style="background-color: #fff;" value="0"> до 18 мест		</option>
+					<option style="background-color: #fff;" value="1"> от 19 до 20 		</option>
+					<option style="background-color: #fff;" value="2"> от 21 до 34		</option>
+					<option style="background-color: #fff;" value="3"> от 35 до 44		</option>
+					<option style="background-color: #fff;" value="4"> от 45 до 50		</option>
+					<option style="background-color: #fff;" value="5"> от 51 до 60		</option>
+				</select>                                          
+
+
+				<select onchange="calc()" id="busType">
+					<option style="background-color: #fff;" value="0">трансфер	</option>
+					<option style="background-color: #fff;" value="1">аренда	</option>
+				</select>
+
+				<p id="label_duration">часов</p>
+				<input onchange="calc()" type="number" min="1" max="96" size="3" id="duration">
+						
+				<p id="label_carCost">С авто</p>
+				<input type="text" size="4" id="carCost">
+				
+				<p id="label_addHourCost">доп. час</p>
+				<input type="text" size="4" id="addHourCost">
+				
+				<p id="label_hoursCount">часов</p>
+				<input onchange="calc()" type="number" min="1" max="6" size="4" id="hoursCount">
+				
+				<p id="label_km">километраж</p>
+				<input onchange="calc()" type="number" min="1" max="9999" size="4" id="km">
+				
+				<p id="label_carMov">С груз</p>
+				<input type="text" size="4" id="carMov">
+				
+				<p id="label_time">Время подачи</p>
+				<input onchange="calc()" type="time" value="15:00" id="time">
+				
+				<div id="percent">
+					<label><input type="radio" name="percent" value="Wen" onClick="this.checked=!this.isChecked;calc()" onMouseDown="this.isChecked=this.checked;">5</label>
+					<label><input type="radio" name="percent" value="Thu" onClick="this.checked=!this.isChecked;calc()" onMouseDown="this.isChecked=this.checked;">10</label>
+					<label><input type="radio" name="percent" value="Fri" onClick="this.checked=!this.isChecked;calc()" onMouseDown="this.isChecked=this.checked;">15</label>
+					<label><input type="radio" name="percent" value="Epic" onClick="this.checked=!this.isChecked;calc()" onMouseDown="this.isChecked=this.checked;">20</label>
+					<label style="background-color: #aaffaa; color: rgb(77,77,77);">
+						<input type="radio" name="percent" value="Sun" onClick="this.checked=!this.isChecked;calc()" onMouseDown="this.isChecked=this.checked;">10%
+					</label>
+				</div>
+
+				<div id="clean" onclick="ccleaner()">✄</div>
+
+			</div>
+			<div id="block3">
+				<p id="label_trash"><span style="color: #aaaaff;">Свалка</span></p>
+				<input onchange="calc()" type="checkbox" name="trash" id="trash">
+				
+				<p id="label_volume">Объём</p>
+				<select onchange="calc()" id="volume">
+					<option style="background-color: #eee;">Газель				</option>
+					<option style="background-color: #aaffaa;" value="0"> до 1 куба		</option>
+					<option style="background-color: #aaffaa;" value="1"> от 1 до 3 кубов	</option>
+					<option style="background-color: #aaffaa;" value="2"> от 3 до 6 кубов	</option>
+					<option style="background-color: #aaffaa;" value="3"> от 6 до 10 кубов	</option>
+					<option style="background-color: #aaffaa;" value="4"> от 10 до 16 кубов	</option>
+					<option style="background-color: #eee;">ПУХТО				</option>
+					<option style="background-color: #ffaaaa;" value="5"> до 3 кубов	</option>
+					<option style="background-color: #ffaaaa;" value="6"> от 6 до 14 кубов	</option>
+					<option style="background-color: #ffaaaa;" value="7"> от 14 до 27 кубов	</option>
+				</select>
+				
+				<p id="label_actions">Акции</p>
+				<div id="actions">
+					<label id="po1" title="Тариф Вечерний с 1 грузчиком">
+						<input type="radio" onClick="this.checked=!this.isChecked;calc()" onMouseDown="this.isChecked=this.checked;" name="actions">ПО1</label>
+					<label id="po2" title="Тариф Вечерний с 2 грузчиками">
+						<input type="radio" onClick="this.checked=!this.isChecked;calc()" onMouseDown="this.isChecked=this.checked;" name="actions">ПО2</label>
+					<label id="bpbn" title="Безлимитная перевозка по Б/Н">
+						<input type="radio" onClick="this.checked=!this.isChecked;calc()" onMouseDown="this.isChecked=this.checked;" name="actions">БПБН</label>
+				</div>
+				
+				<p id="label_total">Итого</p>
+				<input type="text" readonly size="4" id="total">
+	
+			</div>
+			<div id="block4">
+				
+			</div>
+		
+		</form>
+		
+		<div id="block5">
+			<p>AutoControl online поможет Вам произвести качественный расчёт
+			<span style="color: #aaffaa;">газелей</span>,
+			<span style="color: #ff9999;">большегрузных автомобилей</span>,
+			<span style="color: #ffffaa;">эвакуаторов</span>,
+			<span style="color: #aaaaff;">вывоза мусора</span> во всех трёх тарифных зонах.</p>
+			<p>1) определитесь с тарифной зоной;</p>
+			<p>2) укажите количество часов;</p>
+			<p>3) выберите тип оплаты и тип автомобиля;</p>
+			<p>4) укажите время подачи авто;</p>
+			<p>5) отметьте 
+			<span style="color: #ff9999;">наценку 5, 10, 15</span> или 
+			<span style="color: #aaffaa;">скидку 10%</span>, если заказ на 
+			<span style="color: #ff9999;">СР, ЧТ, ПТ</span> или 
+			<span style="color: #aaffaa;">ВС</span> соответственно; </p>
+			<p>6) или поставьте галочку <span style="color: #aaaaff;">"cвалка"</span>, выберите объём мусора и получите ответ.</p>
+		</div>	
+	</div>
+
+	<!--<div id="map"></div>-->
+
+	<!-- Put this div tag to the place, where the Comments block will be -->
+	<div id="vk_comments"></div>
+	<script type="text/javascript">
+	VK.Widgets.Comments("vk_comments", {redesign: 1, limit: 15, width: 965, attach: "*"});
+	</script>
+
+</body>
+</html>
